@@ -4,6 +4,13 @@ import requests
 import re
 import bcrypt
 import os
+# MongoDB connection test
+try:
+    client = MongoClient("mongodb://<username>:<password>@<host>:<port>/<dbname>")
+    client.admin.command('ping')  # Test the connection
+    st.success("MongoDB connection successful!")
+except Exception as e:
+    st.error(f"Connection failed: {e}"
 
 # Initialize MongoDB client
 client = MongoClient('mongodb://localhost:27017/')
